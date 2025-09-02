@@ -24,9 +24,44 @@ let humanScore = 0;
 let computerScore = 0;
 
 //Write the lofic to play a single round
+function playRound(humanChoice, computerChoice) {
+    //choice logic
+    let win;
+    if (humanChoice == "rock" && computerChoice == "scissorrs") {
+        win = true;
+    } 
+    if (humanChoice == "paper" && computerChoice == "rock") {
+        win = true;
+    }
+    if (humanChoice == "scissors" && computerChoice == "paper") {
+        win = true
+    }
+    rock > scissors;
+
+    paper > rock;
+
+    scissors > paper;
+    
+    if (humanChoice.localeCompare(computerChoice, "en", {sensitivity: "base"}) == 0) {
+        console.log("Tie! No points.")
+    } else if (humanChoice > computerChoice) {
+        console.log("You win! One point to the human.")
+        humanScore ++;
+    } else {
+        console.log("You lose! One point to the computer.")
+        computerScore ++;
+    }
+}
 
 //Write the logic to play the entire game
 
 //Check results in console
 console.log(getComputerChoice());
 console.log(getHumanChoice());
+
+let a = "rock";
+let b = "paper";
+let c = "scissors"
+console.log(a.localeCompare(b, "en", {sensitivity: "base"}));
+console.log(a.localeCompare(c, "en", {sensitivity: "base"}));
+console.log(b.localeCompare(c, "en", {sensitivity: "base"}));
