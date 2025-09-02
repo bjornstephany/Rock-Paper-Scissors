@@ -13,4 +13,20 @@ function getComputerChoice() {
     return choice;
 }
 
+//Write the logic to get the human choice
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, paper or scissors?");
+    return humanChoice;
+}
+
+//Declare the players score variables
+let humanScore = 0;
+let computerScore = 0;
+
+//Write the lofic to play a single round
+
+//Write the logic to play the entire game
+
+//Check results in console
 console.log(getComputerChoice());
+console.log(getHumanChoice());
