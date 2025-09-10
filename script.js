@@ -1,67 +1,54 @@
-//Write logic to get the computer choice
-//Create new function named getComputer Choice
+//Get computer choice
 function getComputerChoice() {
-    let num = Math.random();
-    let choice;
-    if (num > 0.6666666666) {
-        choice = "rock";
-    } else if (num <=0.666666666 && num > 0.3333333333) {
-        choice = "paper";
-    } else {
-        choice = "scissors";
-    }
-    return choice;
+  let num = Math.random();
+  let computerChoice;
+  if (num > 0.6666666666) {
+    computerChoice = "rock";
+  } else if (num <= 0.666666666 && num > 0.3333333333) {
+    computerChoice = "paper";
+  } else {
+    computerChoice = "scissors";
+  }
+  return computerChoice;
 }
 
-//Write the logic to get the human choice
+//Get human choice
 function getHumanChoice() {
-    let humanChoice = prompt("Rock, paper or scissors?");
-    return humanChoice;
+  let humanChoice = prompt("Rock, paper or scissors?");
+  return humanChoice.toLowerCase();
 }
 
 //Declare the players score variables
 let humanScore = 0;
 let computerScore = 0;
 
-//Write the lofic to play a single round
-function playRound(humanChoice, computerChoice) {
-    //choice logic
-    let win;
-    if (humanChoice == "rock" && computerChoice == "scissorrs") {
-        win = true;
-    } 
-    if (humanChoice == "paper" && computerChoice == "rock") {
-        win = true;
-    }
-    if (humanChoice == "scissors" && computerChoice == "paper") {
-        win = true
-    }
-    rock > scissors;
+//Write the logic to play the entire game
+function playGame() {
+  for (let i = 0; i < 5; i++) {
 
-    paper > rock;
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
 
-    scissors > paper;
-    
-    if (humanChoice.localeCompare(computerChoice, "en", {sensitivity: "base"}) == 0) {
-        console.log("Tie! No points.")
-    } else if (humanChoice > computerChoice) {
-        console.log("You win! One point to the human.")
-        humanScore ++;
-    } else {
-        console.log("You lose! One point to the computer.")
-        computerScore ++;
+    function playRound(humanChoice, computerChoice) {
+      if (humanChoice == "rock" && computerChoice == "scissors") {
+        humanScore++;
+      } else if (humanChoice == "scissors" && computerChoice == "paper") {
+        humanScore++;
+      } else if (humanChoice == "paper" && computerChoice == "rock") {
+        humanScore++;
+      } else {
+        computerScore++;
+      }
     }
+  }
+  console.log("Your score: " + humanScore);
+  console.log("Computer score: " + computerScore);
+  if (humanScore > computerScore) {
+    console.log("You win!")
+  } else {
+    console.log("You lose :(")
+  }
 }
 
-//Write the logic to play the entire game
-
-//Check results in console
-console.log(getComputerChoice());
-console.log(getHumanChoice());
-
-let a = "rock";
-let b = "paper";
-let c = "scissors"
-console.log(a.localeCompare(b, "en", {sensitivity: "base"}));
-console.log(a.localeCompare(c, "en", {sensitivity: "base"}));
-console.log(b.localeCompare(c, "en", {sensitivity: "base"}));
+console.log(playGame());
